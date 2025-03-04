@@ -1,7 +1,8 @@
+import { Button } from "@/components/ui/button"
 
 function Home() {
   return (
-    <div>Home</div>
+    <div className="w-full h-screen flex justify-center items-center"><Button>Get Started</Button></div>
   )
 }
 

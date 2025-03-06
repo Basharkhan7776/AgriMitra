@@ -4,6 +4,7 @@ import HeroImage from "@/assets/HeroImage.png";
 import DemoVideoMock from "@/assets/DemoVideoMock.png";
 import { Card } from "@/components/ui/card";
 import { Bug, ChartLine, Cloud, File, Leaf, Wallet } from "lucide-react";
+import { FooterMain } from "@/components/footer";
 
 function Home() {
   return (
@@ -90,6 +91,7 @@ function Home() {
           <Button className="text-xl p-7 text-white" variant={"outline"}  >Contact Sales</Button>
         </div>
       </div>
+      <FooterMain/>
     </div>
   )
 }

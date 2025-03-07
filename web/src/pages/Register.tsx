@@ -53,30 +53,34 @@ function Register() {
             </div>
           </div>
         </div>
-        <Card className="p-16 flex flex-col gap-2">
-          <CardTitle className="text-4xl text-center">Create your account</CardTitle>
+        <Card className="p-10 flex flex-col gap-2 w-[500px]">
+          <CardTitle className="text-2xl text-center">Create your account</CardTitle>
           <CardDescription className="text-center">Join thousands of farmers already using AgriMitra</CardDescription>
-          <CardContent>
+          <CardContent className="flex flex-col gap-3">
             <div>
               <Label>Full Name</Label>
-              <Input placeholder="Enter your full name" />
+              <Input type="text" placeholder="Enter your full name" />
             </div>
             <div>
               <Label>Email address</Label>
-              <Input placeholder="Enter your email" />
+              <Input type="email" placeholder="Enter your email address" />
             </div>
             <div>
               <Label>Password</Label>
-              <Input placeholder="Create a password" />
+              <Input type="password" placeholder="Create a password" />
             </div>
             <div>
               <Label>Confirm password</Label>
-              <Input placeholder="Confirm your password" />
+              <Input type="password" placeholder="Confirm your password" />
             </div>
-            <div>
-              <Checkbox/>
+            <div className="flex gap-1 items-center">
+              <Checkbox/><p>I agree to the</p><a href="#Term-and-condotion" className="text-primary">Terms and Conditions</a>
             </div>
+            <Button className="w-full">Create account</Button>
           </CardContent>
+          <CardFooter className="flex justify-center">
+            <p>Already have an account? <a href="#login" className="text-primary">Sign in here</a></p>
+          </CardFooter>
         </Card>
       </div>
     </div>

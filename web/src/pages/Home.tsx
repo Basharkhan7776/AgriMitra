@@ -1,25 +1,17 @@
 import { Button } from "@/components/ui/button"
-import { Logo } from "@/components/ui/logo"
 import HeroImage from "@/assets/HeroImage.png";
 import DemoVideoMock from "@/assets/DemoVideoMock.png";
 import { Card } from "@/components/ui/card";
+import { NavBarHome } from "@/components/navBar";
 import { Bug, ChartLine, Cloud, File, Leaf, Wallet } from "lucide-react";
 import { FooterMain } from "@/components/footer";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate=useNavigate()
   return (
     <div className="w-full flex flex-col items-center justify-center scroll-smooth  snap snap-y snap-mandatory">
-      <div id="HomeNavPanel" className="w-full fixed top-0 bg-white rounded-sm shadow-sm p-3 px-6 flex gap-4 justify-between items-center snap-center snap-mandatory">
-        <Logo />
-        <div className="flex gap-8 items-center">
-          <a href="#home" className="hover:text-primary hover:bg-white transition-all duration-300 cursor-pointer">Home</a>
-          <a href="#feature" className="hover:text-primary hover:bg-white transition-all duration-300 cursor-pointer">Feature</a>
-          <a href="#marketplace" className="hover:text-primary hover:bg-white transition-all duration-300 cursor-pointer">Marketplace</a>
-          <a href="#about" className="hover:text-primary hover:bg-white transition-all duration-300 cursor-pointer">About</a>
-          <a href="#contact" className="hover:text-primary hover:bg-white transition-all duration-300 cursor-pointer">Contact</a>
-          <Button >Get Started</Button>
-        </div>
-      </div>
+      <NavBarHome mainButtonSite="/register" mainButtonText="Get Started" homePage={true}/>
       <div id="home" className="w-full  h-screen flex gap-4 justify-around snap-center snap-mandatory">
         <div className="flex flex-col justify-center gap-8">
           <h1 className="text-6xl text-center font-bold  text-black">Transforming Agriculture</h1>
@@ -27,14 +19,14 @@ function Home() {
           <p className="text-center text-secondary-foreground">Experience next-generation farming with hyperlocal weather forecasts, AI-powered <br />
             pest management, and a verified marketplace - all in one platform. </p>
           <div className="flex justify-center">
-            <Button className="text-2xl p-8 font-semibold">Explore AgriMitra</Button>
+            <Button onClick={()=>{navigate("/register")}} className="text-2xl p-8 font-semibold">Explore AgriMitra</Button>
           </div>
         </div>
         <div className="p-12 flex justify-center items-center">
           <img src={HeroImage} alt="Home Image" className="rounded-[15%] h-[700px]" />
         </div>
       </div>
-      <div id="about" className="h-screen justify-center flex flex-col gap-12 snap-center snap-mandatory">
+      <div id="feature" className="h-screen justify-center flex flex-col gap-12 snap-center snap-mandatory">
         <div className="flex flex-col items-center gap-4 p-12">
           <h1 className="text-3xl font-semibold">Powerfull Feature for Modern farming</h1>
           <p>Everything you need to optimize your </p>

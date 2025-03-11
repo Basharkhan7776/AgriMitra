@@ -42,7 +42,7 @@ export default function Dashboard() {
             <CardTitle className="text-lg font-semibold">Pest Control Suggestions</CardTitle>
           </Card>
           <div className="col-span-2 flex justify-center items-center">
-            <Button className="h-16 w-32"><PlusIcon /> Add More</Button>
+            <Button size={"lg"}><PlusIcon /> Add More</Button>
           </div>
         </div>
         <FooterMain/>

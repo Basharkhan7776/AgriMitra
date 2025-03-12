@@ -47,7 +47,7 @@ function NavBarDash({ currentPage }: { currentPage: "dashboard" | "marketplace" 
                     <Button
                         variant={"ghost"}
                         className={`${(currentPage == "community") ? "text-primary hover:text-primary" : ""}`}
-                        onClick={() => navigate("/community")}
+                        onClick={() => navigate("/community/blogs")}
                     >
                         <Users /> Community
                     </Button>
@@ -58,7 +58,7 @@ function NavBarDash({ currentPage }: { currentPage: "dashboard" | "marketplace" 
                     </Button>
                 </div>
                 <div>
-                    <Button variant={"secondary"}>
+                    <Button variant={"secondary"} className="bg-secondary rounded-full hover:bg-primary hover:text-primary-foreground">
                         <Avatar className="h-8 w-8">
                             <AvatarImage src="https://github.com/shadcn.png" />
                             <AvatarFallback>CN</AvatarFallback>
@@ -71,5 +71,21 @@ function NavBarDash({ currentPage }: { currentPage: "dashboard" | "marketplace" 
     )
 }
 
+function NavBarCommunity({ currentPage }: { currentPage: "blogs" | "govSchemes" | "insurance" }) {
+    const navigate = useNavigate()
 
-export { NavBarHome, NavBarDash }
+    return <div id="CommunityNavPanel" className="w-full flex flex-col gap-5">
+        <div>
+            <h1 className="text-2xl font-semibold">Community</h1>
+        </div>
+        <div className="flex gap-12 h-8  w-full">
+            <a className={`text-sm border-b-2 ${(currentPage=="blogs")?"border-primary text-primary":""} cursor-pointer`} onClick={() => navigate("/community/blogs")}>Blogs</a>
+            <a className={`text-sm border-b-2 ${(currentPage=="govSchemes")?"border-primary text-primary":""} cursor-pointer`} onClick={() => navigate("/community/government-schemes")}>Government Schemes</a>
+            <a className={`text-sm border-b-2 ${(currentPage=="insurance")?"border-primary text-primary":""} cursor-pointer`} onClick={() => navigate("/community/insurance")}>Agri Insurance</a>
+        </div>
+    </div>
+}
+
+
+
+export { NavBarHome, NavBarDash, NavBarCommunity }

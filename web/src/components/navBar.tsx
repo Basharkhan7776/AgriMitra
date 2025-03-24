@@ -9,7 +9,7 @@ import { Bell, HomeIcon, Store, Users } from "lucide-react";
 function NavBarHome({ mainButtonSite, mainButtonText, homePage }: { mainButtonSite: string, mainButtonText: string, homePage: boolean }) {
     const navigate = useNavigate()
     return (
-        <div id="HomeNavPanel" className="w-full fixed top-0 bg-white rounded-sm shadow-sm p-3 px-6 flex gap-4 justify-between items-center snap-center snap-mandatory">
+        <div id="HomeNavPanel" className="w-full z-10 fixed top-0 bg-white rounded-sm shadow-sm p-3 px-6 flex gap-4 justify-between items-center snap-center snap-mandatory">
             <Logo />
             <div className="flex gap-8 items-center">
                 <a href={homePage ? "#home" : undefined} onClick={!homePage ? () => navigate("/") : undefined} className="hover:text-primary hover:bg-white transition-all duration-300 cursor-pointer">Home</a>

@@ -12,8 +12,8 @@ function Home() {
   return (
     <div className="w-full flex flex-col items-center justify-center scroll-smooth  snap snap-y snap-mandatory">
       <NavBarHome mainButtonSite="/register" mainButtonText="Get Started" homePage={true}/>
-      <div id="home" className="w-full  h-screen flex gap-4 justify-around snap-center snap-mandatory">
-        <div className="flex flex-col justify-center gap-8">
+      <div id="home" className="mt-8 w-full h-screen flex lg:flex-row flex-col gap-4 justify-around snap-center snap-mandatory">
+        <div className="flex h-full flex-col p-4 justify-center items-center gap-8  md:backdrop-blur-sm lg:backdrop-blur-none">
           <h1 className="text-6xl text-center font-bold  text-black">Transforming Agriculture</h1>
           <h1 className="text-6xl text-center font-semibold text-primary">with AI Technology</h1>
           <p className="text-center text-secondary-foreground">Experience next-generation farming with hyperlocal weather forecasts, AI-powered <br />
@@ -22,8 +22,8 @@ function Home() {
             <Button onClick={()=>{navigate("/register")}} className="text-2xl p-8 font-semibold">Explore AgriMitra</Button>
           </div>
         </div>
-        <div className="p-12 flex justify-center items-center">
-          <img src={HeroImage} alt="Home Image" className="rounded-[15%] h-[700px]" />
+        <div className="lg:p-12 p-2 hidden absolute lg:static -z-10 sm:flex justify-center items-center">
+          <img src={HeroImage} alt="Home Image" className="rounded-[15%] lg:w-[90%] w-[100%] " />
         </div>
       </div>
       <div id="feature" className="h-screen justify-center flex flex-col gap-12 snap-center snap-mandatory">

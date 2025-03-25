@@ -9,6 +9,7 @@ import Marketplace from "@/pages/Marketplace";
 import Blogs from "@/pages/Blogs"
 import GovSchemes from "@/pages/GovSchemes";
 import Insurance from "@/pages/Insurance";
+import Setup from "@/pages/Setup";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/setup" element={<Setup />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/community" element={<Community />}>
           <Route index path="blogs" element={<Blogs />} />

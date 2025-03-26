@@ -3,7 +3,7 @@ import { Logo } from "@/components/ui/logo"
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Bell, HomeIcon, Store, Users } from "lucide-react";
+import { Bell, HomeIcon, Menu, Store, Users } from "lucide-react";
 
 
 function NavBarHome({ mainButtonSite, mainButtonText, homePage }: { mainButtonSite: string, mainButtonText: string, homePage: boolean }) {
@@ -11,7 +11,7 @@ function NavBarHome({ mainButtonSite, mainButtonText, homePage }: { mainButtonSi
     return (
         <div id="HomeNavPanel" className="w-full z-10 fixed top-0 bg-white rounded-sm shadow-sm p-3 px-6 flex gap-4 justify-between items-center snap-center snap-mandatory">
             <Logo />
-            <div className="flex gap-8 items-center">
+            <div className="hidden md:flex gap-8 items-center">
                 <a href={homePage ? "#home" : undefined} onClick={!homePage ? () => navigate("/") : undefined} className="hover:text-primary hover:bg-white transition-all duration-300 cursor-pointer">Home</a>
                 <a href="#feature" className="hover:text-primary hover:bg-white transition-all duration-300 cursor-pointer">Feature</a>
                 <a href="#marketplace" className="hover:text-primary hover:bg-white transition-all duration-300 cursor-pointer">Marketplace</a>
@@ -19,6 +19,7 @@ function NavBarHome({ mainButtonSite, mainButtonText, homePage }: { mainButtonSi
                 <a href="#contact" className="hover:text-primary hover:bg-white transition-all duration-300 cursor-pointer">Contact</a>
                 <Button onClick={() => { navigate(mainButtonSite) }} >{mainButtonText}</Button>
             </div>
+            <Button variant={"secondary"} className="bg-secondary block md:hidden"><Menu/></Button>
         </div>
     )
 }

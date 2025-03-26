@@ -26,12 +26,12 @@ function Home() {
           <img src={HeroImage} alt="Home Image" className="rounded-[15%] lg:w-[90%] w-[100%] " />
         </div>
       </div>
-      <div id="feature" className="h-screen justify-center flex flex-col gap-12 snap-center snap-mandatory">
-        <div className="flex flex-col items-center gap-4 p-12">
-          <h1 className="text-3xl font-semibold">Powerfull Feature for Modern farming</h1>
+      <div id="feature" className="min-h-screen justify-center flex flex-col gap-12 snap-center snap-mandatory">
+        <div className="flex flex-col items-center text-center gap-4 p-12">
+          <h1 className="text-3xl font-semibold text-center">Powerfull Feature for Modern farming</h1>
           <p>Everything you need to optimize your </p>
         </div>
-        <div className="grid grid-cols-3 grid-rows-2 gap-4">
+        <div className="px-4 grid sm:grid-cols-2 md:grid-cols-3 grid-rows-2 gap-4">
           <AboutCard 
           icon={<Cloud stroke="#07B506" />} 
           title="Hyperlocal Weather Alerts" 
@@ -64,13 +64,13 @@ function Home() {
           />
         </div>
       </div>
-      <div id="demo" className="w-full snap-center snap-mandatory">
+      <div id="demo" className="w-full px-4 snap-center snap-mandatory">
         <Card className="w-full h-screen flex flex-col gap-8 justify-center items-center">
           <div className="flex flex-col gap-2">
             <h1 className="text-center text-2xl font-semibold">See AgriMitra in Action</h1>
             <p className="text-center">Watch how our platform transforms traditional farming practices</p>
           </div>
-          <img src={DemoVideoMock} alt="demo video" className="rounded-lg h-[70%]"/>
+          <img src={DemoVideoMock} alt="demo video" className="rounded-lg h-auto md:h-[70%]"/>
         </Card>
       </div>
       <div id="contact" className="bg-primary w-full flex flex-col py-16 gap-8 justify-center items-center snap-center snap-mandatory">
@@ -78,7 +78,7 @@ function Home() {
           <h1 className="text-center text-3xl text-white font-semibold">Ready to Transform Your Farm?</h1>
           <p className="text-center text-white">Join thousands of farmer already using AgriMitra</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-col sm:flex-row">
           <Button className="text-xl p-7 text-primary" variant={"secondary"} >Get Startet</Button>
           <Button className="text-xl p-7 text-white" variant={"outline"}  >Contact Sales</Button>
         </div>

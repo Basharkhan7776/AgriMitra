@@ -142,6 +142,7 @@ function Register() {
             <Button
               type="button"
               className="w-full mt-2"
+              variant={"secondary"}
               onClick={handleGoogleSignIn}
             >
               Sign Up with Google

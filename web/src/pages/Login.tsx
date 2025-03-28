@@ -110,7 +110,7 @@ const Login = () => {
             onClick={handleGoogleSignIn}
           >
             <GoogleLogo />
-            Log in with Google text
+            Log in with Google
           </Button>
         </CardContent>
         <CardFooter className="flex justify-center">

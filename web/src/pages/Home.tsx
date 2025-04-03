@@ -22,18 +22,18 @@ function Home() {
         toggle={toggle}
         setToggle={setToggle}
       />
-      <AppSidebar toggle={toggle} setToggle={setToggle}/>
+      <AppSidebar toggle={toggle} setToggle={setToggle} />
       <div id="home" className="mt-8 w-full h-screen flex lg:flex-row flex-col gap-4 justify-around snap-center snap-mandatory">
-        <div className="flex h-full flex-col p-4 justify-center items-center gap-8  md:backdrop-blur-sm  lg:backdrop-blur-none">
+        <div className="flex h-full flex-col p-4 justify-center items-center gap-4 sm:gap-8  sm:backdrop-blur-sm  lg:backdrop-blur-none">
           <h1 className="text-4xl sm:text-6xl text-center font-bold  text-black">Transforming Agriculture</h1>
           <h1 className="text-4xl sm:text-6xl text-center font-semibold text-primary">with AI Technology</h1>
           <p className="text-[12px] sm:text-lg text-center text-secondary-foreground">Experience next-generation farming with hyperlocal weather forecasts, AI-powered <br />
             pest management, and a verified marketplace - all in one platform. </p>
           <div className="flex justify-center">
-            <Button onClick={() => { navigate("/register") }} className="text-xl sm:text-2xl p-8 font-semibold">Explore AgriMitra</Button>
+            <Button onClick={() => { navigate("/register") }} className="text-xl sm:text-2xl p-4 md:p-8 font-semibold">Explore AgriMitra</Button>
           </div>
         </div>
-        <div className="lg:p-12 p-2 hidden absolute lg:static -z-10 sm:flex justify-center items-center">
+        <div className="lg:p-12 p-2 h-full bg-cover hidden absolute lg:static -z-10 sm:flex justify-center items-center">
           <img src={HeroImage} alt="Home Image" className="rounded-[15%] lg:w-[90%] w-[100%] " />
         </div>
       </div>

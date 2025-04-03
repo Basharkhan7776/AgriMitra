@@ -18,8 +18,11 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { NavBarHome } from "@/components/navBar";
+import { AppSidebar } from "@/components/app-sidebar";
+
 
 function Register() {
+  const [toggle, setToggle] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { dispatch } = useContext(AuthContext);
@@ -63,10 +66,13 @@ function Register() {
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center">
       <NavBarHome
-        mainButtonSite="/login"
-        mainButtonText="Sign in"
+        mainButtonSite="/register"
+        mainButtonText="Sign up"
         homePage={false}
+        toggle={toggle}
+        setToggle={setToggle}
       />
+      <AppSidebar toggle={toggle} setToggle={setToggle} />
       <div className="flex gap-4 justify-center items-center">
         <Card className="flex flex-col gap-5 p-4 justify-center items-center">
           <img src={SignupImage} alt="Signup" className="rounded-xl h-96" />

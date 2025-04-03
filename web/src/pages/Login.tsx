@@ -5,6 +5,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Button } from "@/components/ui/button";
+import { AppSidebar } from "@/components/app-sidebar";
 import {
   Card,
   CardTitle,
@@ -18,6 +19,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { NavBarHome } from "@/components/navBar";
 
 const Login = () => {
+  const [toggle,setToggle]=useState(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const { dispatch } = useContext(AuthContext);
@@ -65,7 +67,10 @@ const Login = () => {
         mainButtonSite="/register"
         mainButtonText="Sign up"
         homePage={false}
+        toggle={toggle}
+        setToggle={setToggle}
       />
+      <AppSidebar toggle={toggle} setToggle={setToggle} />
       <Card className="p-10 flex flex-col gap-2 w-[500px]">
         <CardTitle className="text-2xl text-center">Sign in</CardTitle>
         <CardDescription className="text-center">

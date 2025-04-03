@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button"
 import HeroImage from "@/assets/HeroImage.png";
 import DemoVideoMock from "@/assets/DemoVideoMock.png";
@@ -6,12 +7,22 @@ import { NavBarHome } from "@/components/navBar";
 import { Bug, ChartLine, Cloud, File, Leaf, Wallet } from "lucide-react";
 import { FooterMain } from "@/components/footer";
 import { useNavigate } from "react-router-dom";
+import { AppSidebar } from "@/components/app-sidebar";
 
 function Home() {
   const navigate = useNavigate()
+  const [toggle, setToggle] = useState(false);
+
   return (
-    <div className="w-full flex flex-col items-center justify-center scroll-smooth  snap snap-y snap-mandatory">
-      <NavBarHome mainButtonSite="/register" mainButtonText="Get Started" homePage={true} />
+    <div className={`w-full flex flex-col items-center justify-center scroll-smooth  snap snap-y snap-mandatory ${toggle ? "overflow-hidden" : ""}`}>
+      <NavBarHome
+        mainButtonSite="/register"
+        mainButtonText="Get Started"
+        homePage={true}
+        toggle={toggle}
+        setToggle={setToggle}
+      />
+      <AppSidebar toggle={toggle} setToggle={setToggle}/>
       <div id="home" className="mt-8 w-full h-screen flex lg:flex-row flex-col gap-4 justify-around snap-center snap-mandatory">
         <div className="flex h-full flex-col p-4 justify-center items-center gap-8  md:backdrop-blur-sm  lg:backdrop-blur-none">
           <h1 className="text-4xl sm:text-6xl text-center font-bold  text-black">Transforming Agriculture</h1>

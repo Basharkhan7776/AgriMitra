@@ -1,4 +1,4 @@
-
+import { useState } from "react"
 import { Logo } from "@/components/ui/logo"
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button"
@@ -6,8 +6,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Bell, HomeIcon, Menu, Store, Users } from "lucide-react";
 
 
-function NavBarHome({ mainButtonSite, mainButtonText, homePage }: { mainButtonSite: string, mainButtonText: string, homePage: boolean }) {
-    const navigate = useNavigate()
+function NavBarHome({ mainButtonSite, mainButtonText, homePage,toggle, setToggle  }: { mainButtonSite: string, mainButtonText: string, homePage: boolean, toggle: boolean, setToggle: (toggle: boolean) => void }) {
+    const navigate = useNavigate();
+
+
     return (
         <div id="HomeNavPanel" className="w-full z-10 fixed top-0 bg-white rounded-sm shadow-sm p-3 px-6 flex gap-4 justify-between items-center snap-center snap-mandatory">
             <Logo />
@@ -19,7 +21,10 @@ function NavBarHome({ mainButtonSite, mainButtonText, homePage }: { mainButtonSi
                 <a href="#contact" className="hover:text-primary hover:bg-white transition-all duration-300 cursor-pointer">Contact</a>
                 <Button onClick={() => { navigate(mainButtonSite) }} >{mainButtonText}</Button>
             </div>
-            <Button variant={"secondary"} className="bg-secondary block md:hidden"><Menu/></Button>
+            <Button
+                variant={"secondary"} className="bg-secondary block md:hidden"
+                onClick={() => setToggle(!toggle)}
+            ><Menu /></Button>
         </div>
     )
 }
@@ -80,9 +85,9 @@ function NavBarCommunity({ currentPage }: { currentPage: "blogs" | "govSchemes" 
             <h1 className="text-2xl font-semibold">Community</h1>
         </div>
         <div className="flex gap-12 h-8  w-full">
-            <a className={`text-sm border-b-2 ${(currentPage=="blogs")?"border-primary text-primary":""} cursor-pointer`} onClick={() => navigate("/community/blogs")}>Blogs</a>
-            <a className={`text-sm border-b-2 ${(currentPage=="govSchemes")?"border-primary text-primary":""} cursor-pointer`} onClick={() => navigate("/community/government-schemes")}>Government Schemes</a>
-            <a className={`text-sm border-b-2 ${(currentPage=="insurance")?"border-primary text-primary":""} cursor-pointer`} onClick={() => navigate("/community/insurance")}>Agri Insurance</a>
+            <a className={`text-sm border-b-2 ${(currentPage == "blogs") ? "border-primary text-primary" : ""} cursor-pointer`} onClick={() => navigate("/community/blogs")}>Blogs</a>
+            <a className={`text-sm border-b-2 ${(currentPage == "govSchemes") ? "border-primary text-primary" : ""} cursor-pointer`} onClick={() => navigate("/community/government-schemes")}>Government Schemes</a>
+            <a className={`text-sm border-b-2 ${(currentPage == "insurance") ? "border-primary text-primary" : ""} cursor-pointer`} onClick={() => navigate("/community/insurance")}>Agri Insurance</a>
         </div>
     </div>
 }

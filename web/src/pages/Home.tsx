@@ -8,18 +8,18 @@ import { FooterMain } from "@/components/footer";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   return (
     <div className="w-full flex flex-col items-center justify-center scroll-smooth  snap snap-y snap-mandatory">
-      <NavBarHome mainButtonSite="/register" mainButtonText="Get Started" homePage={true}/>
+      <NavBarHome mainButtonSite="/register" mainButtonText="Get Started" homePage={true} />
       <div id="home" className="mt-8 w-full h-screen flex lg:flex-row flex-col gap-4 justify-around snap-center snap-mandatory">
-        <div className="flex h-full flex-col p-4 justify-center items-center gap-8  md:backdrop-blur-sm lg:backdrop-blur-none">
-          <h1 className="text-6xl text-center font-bold  text-black">Transforming Agriculture</h1>
-          <h1 className="text-6xl text-center font-semibold text-primary">with AI Technology</h1>
-          <p className="text-center text-secondary-foreground">Experience next-generation farming with hyperlocal weather forecasts, AI-powered <br />
+        <div className="flex h-full flex-col p-4 justify-center items-center gap-8  md:backdrop-blur-sm  lg:backdrop-blur-none">
+          <h1 className="text-4xl sm:text-6xl text-center font-bold  text-black">Transforming Agriculture</h1>
+          <h1 className="text-4xl sm:text-6xl text-center font-semibold text-primary">with AI Technology</h1>
+          <p className="text-[12px] sm:text-lg text-center text-secondary-foreground">Experience next-generation farming with hyperlocal weather forecasts, AI-powered <br />
             pest management, and a verified marketplace - all in one platform. </p>
           <div className="flex justify-center">
-            <Button onClick={()=>{navigate("/register")}} className="text-2xl p-8 font-semibold">Explore AgriMitra</Button>
+            <Button onClick={() => { navigate("/register") }} className="text-xl sm:text-2xl p-8 font-semibold">Explore AgriMitra</Button>
           </div>
         </div>
         <div className="lg:p-12 p-2 hidden absolute lg:static -z-10 sm:flex justify-center items-center">
@@ -32,35 +32,35 @@ function Home() {
           <p>Everything you need to optimize your </p>
         </div>
         <div className="px-4 grid sm:grid-cols-2 md:grid-cols-3 grid-rows-2 gap-4">
-          <AboutCard 
-          icon={<Cloud stroke="#07B506" />} 
-          title="Hyperlocal Weather Alerts" 
-          description="Get precise weather forecasts and alerts specific to your farm location" 
+          <AboutCard
+            icon={<Cloud stroke="#07B506" />}
+            title="Hyperlocal Weather Alerts"
+            description="Get precise weather forecasts and alerts specific to your farm location"
           />
-          <AboutCard 
-          icon={<Bug stroke="#07B506" />} 
-          title="AI Pest Management" 
-          description="Early detection and treatment recommendations using AI image analysis" 
+          <AboutCard
+            icon={<Bug stroke="#07B506" />}
+            title="AI Pest Management"
+            description="Early detection and treatment recommendations using AI image analysis"
           />
-          <AboutCard 
-          icon={<File stroke="#07B506" />} 
-          title="Government Scheme Finder" 
-          description="Discover and apply for relevant agricultural schemes and subsidies" 
+          <AboutCard
+            icon={<File stroke="#07B506" />}
+            title="Government Scheme Finder"
+            description="Discover and apply for relevant agricultural schemes and subsidies"
           />
-          <AboutCard 
-          icon={<ChartLine stroke="#07B506" />} 
-          title="Yield Optimization" 
-          description="Data-driven insights to maximize your crop yield and profitability" 
+          <AboutCard
+            icon={<ChartLine stroke="#07B506" />}
+            title="Yield Optimization"
+            description="Data-driven insights to maximize your crop yield and profitability"
           />
-          <AboutCard 
-          icon={<Wallet stroke="#07B506" />} 
-          title="Crop Pricing Insights" 
-          description="Real-time market prices and demand forecasts for better decisions" 
+          <AboutCard
+            icon={<Wallet stroke="#07B506" />}
+            title="Crop Pricing Insights"
+            description="Real-time market prices and demand forecasts for better decisions"
           />
-          <AboutCard 
-          icon={<Leaf stroke="#07B506" />} 
-          title="Sustainable Planner" 
-          description="Plan your crop rotation and resource usage sustainably" 
+          <AboutCard
+            icon={<Leaf stroke="#07B506" />}
+            title="Sustainable Planner"
+            description="Plan your crop rotation and resource usage sustainably"
           />
         </div>
       </div>
@@ -70,7 +70,7 @@ function Home() {
             <h1 className="text-center text-2xl font-semibold">See AgriMitra in Action</h1>
             <p className="text-center">Watch how our platform transforms traditional farming practices</p>
           </div>
-          <img src={DemoVideoMock} alt="demo video" className="rounded-lg h-auto md:h-[70%]"/>
+          <img src={DemoVideoMock} alt="demo video" className="rounded-lg h-auto md:h-[70%]" />
         </Card>
       </div>
       <div id="contact" className="bg-primary w-full flex flex-col py-16 gap-8 justify-center items-center snap-center snap-mandatory">
@@ -83,7 +83,7 @@ function Home() {
           <Button className="text-xl p-7 text-white" variant={"outline"}  >Contact Sales</Button>
         </div>
       </div>
-      <FooterMain/>
+      <FooterMain />
     </div>
   )
 }

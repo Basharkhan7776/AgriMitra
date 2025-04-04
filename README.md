@@ -82,7 +82,6 @@ The AgriMitra project follows a modular, scalable architecture:
   - **Google Weather API:** Provides hyperlocal weather updates.
   - **Google Cloud:** Supports additional cloud operations.
 
-*For a visual representation, see the architecture diagram in the `docs/` folder.*
 
 ---
 
@@ -207,7 +206,6 @@ The AgriMitra project follows a modular, scalable architecture:
 - **Marketplace:**  
   ![Marketplace Screenshot](docs/screenshots/8Marketplace.png)
 
-*Note: Replace the image paths with your actual screenshot file paths.*
 
 ---
 

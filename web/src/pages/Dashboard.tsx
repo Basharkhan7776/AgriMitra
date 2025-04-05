@@ -5,6 +5,8 @@ import { Card, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { PlusIcon } from "lucide-react"
 import { DashSidebar } from "@/components/app-sidebar"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"
+
 
 
 
@@ -24,7 +26,7 @@ export default function Dashboard() {
         toggle={toggle}
         setToggle={setToggle}
       />
-      <div className="min-h-screen w-full grid grid-cols-2 gap-5 mt-20 py-5 px-48">
+      <div className="min-h-screen w-full flex flex-col lg:grid lg:grid-cols-2 gap-5 pt-24 py-5 px-[6%] md:px-[15%] lg:px-[10%]">
         <Card id="CropDistribution" className="p-2 px-4">
           <CardTitle className="text-lg font-semibold">Crop Distribution</CardTitle>
         </Card>
@@ -56,7 +58,17 @@ export default function Dashboard() {
           <CardTitle className="text-lg font-semibold">Pest Control Suggestions</CardTitle>
         </Card>
         <div className="col-span-2 flex justify-center items-center">
-          <Button size={"lg"}><PlusIcon /> Add More</Button>
+          <Dialog>
+            <DialogTrigger>
+              <Button size={"lg"}><PlusIcon /> Add More</Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Here You can add more Cards/Widgets</DialogTitle>
+
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
       <FooterMain />

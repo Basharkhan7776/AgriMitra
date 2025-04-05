@@ -5,7 +5,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Button } from "@/components/ui/button";
-import { AppSidebar } from "@/components/app-sidebar";
+import { HomeSidebar } from "@/components/app-sidebar";
 import {
   Card,
   CardTitle,
@@ -70,8 +70,8 @@ const Login = () => {
         toggle={toggle}
         setToggle={setToggle}
       />
-      <AppSidebar toggle={toggle} setToggle={setToggle} />
-      <Card className="p-10 flex flex-col gap-2 w-[500px]">
+      <HomeSidebar toggle={toggle} setToggle={setToggle} />
+      <Card className="p-4 sm:p-10 flex flex-col gap-2 m-4 md:m-0 md:w-[500px]">
         <CardTitle className="text-2xl text-center">Sign in</CardTitle>
         <CardDescription className="text-center">
           Welcome Back Farmer
@@ -121,7 +121,7 @@ const Login = () => {
         <CardFooter className="flex justify-center">
           <p>
             Don't have an account?{" "}
-            <a href="/register" className="text-primary">
+            <a onClick={()=>{navigate("/register")}} className="text-primary cursor-pointer">
               Sign up here
             </a>
           </p>

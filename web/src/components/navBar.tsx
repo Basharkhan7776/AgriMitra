@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Bell, HomeIcon, Menu, Store, Users } from "lucide-react";
 
 
-function NavBarHome({ mainButtonSite, mainButtonText, homePage,toggle, setToggle  }: { mainButtonSite: string, mainButtonText: string, homePage: boolean, toggle: boolean, setToggle: (toggle: boolean) => void }) {
+function NavBarHome({ mainButtonSite, mainButtonText, homePage, toggle, setToggle }: { mainButtonSite: string, mainButtonText: string, homePage: boolean, toggle: boolean, setToggle: (toggle: boolean) => void }) {
     const navigate = useNavigate();
 
 
@@ -29,13 +29,13 @@ function NavBarHome({ mainButtonSite, mainButtonText, homePage,toggle, setToggle
     )
 }
 
-function NavBarDash({ currentPage }: { currentPage: "dashboard" | "marketplace" | "community" }) {
+function NavBarDash({ currentPage, toggle, setToggle }: { currentPage: "dashboard" | "marketplace" | "community", toggle: boolean, setToggle: (toggle: boolean) => void }) {
     const navigate = useNavigate()
     return (
         <div id="DashboardNavPanel" className="w-full fixed top-0 bg-white rounded-sm shadow-sm py-4 px-6  flex gap-4 justify-between items-center ">
             <Logo />
             <div className="flex gap-4 items-center">
-                <div className="flex gap-4">
+                <div className="hidden lg:flex">
                     <Button
                         variant={"ghost"}
                         className={`${(currentPage == "dashboard") ? "text-primary hover:text-primary" : ""}`}
@@ -64,13 +64,19 @@ function NavBarDash({ currentPage }: { currentPage: "dashboard" | "marketplace" 
                     </Button>
                 </div>
                 <div>
-                    <Button variant={"secondary"} className="bg-secondary rounded-full hover:bg-primary hover:text-primary-foreground">
+                    <Button variant={"secondary"} className="p-1 md:px-2 bg-secondary rounded-full hover:bg-primary hover:text-primary-foreground">
                         <Avatar className="h-8 w-8">
                             <AvatarImage src="https://github.com/shadcn.png" />
                             <AvatarFallback>CN</AvatarFallback>
                         </Avatar>
-                        John Farmer
+                        <p className="hidden md:block">John Farmer</p>
                     </Button>
+                </div>
+                <div>
+                    <Button
+                        variant={"secondary"} className="bg-secondary block lg:hidden"
+                        onClick={() => setToggle(!toggle)}
+                    ><Menu /></Button>
                 </div>
             </div>
         </div>

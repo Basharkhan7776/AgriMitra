@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavBarDash } from "@/components/navBar";
 import { FooterMain } from "@/components/footer";
 import { Input } from "@/components/ui/input";
@@ -5,12 +6,25 @@ import { Button } from "@/components/ui/button";
 import { Ellipsis, Filter, Heart, HeartIcon, History, ShoppingCart } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { DashSidebar } from "@/components/app-sidebar";
 
 
 export default function Marketplace() {
+  const [toggle, setToggle] = useState(false);
+
+
+
   return (
     <div className="w-full h-screen">
-      <NavBarDash currentPage={"marketplace"} />
+      <DashSidebar
+        toggle={toggle}
+        setToggle={setToggle}
+      />
+      <NavBarDash
+        currentPage={"marketplace"}
+        toggle={toggle}
+        setToggle={setToggle}
+      />
       <div className="min-h-screen w-full mt-20 p-4 px-12 flex flex-col gap-6">
         <div className="flex w-full flex-col gap-4">
           <div className="flex justify-between items-center gap-12">
@@ -39,7 +53,7 @@ export default function Marketplace() {
           />
         </div>
         <div className="w-full flex justify-center items-center">
-          <Button size={"lg"}><Ellipsis/> Show More</Button>
+          <Button size={"lg"}><Ellipsis /> Show More</Button>
         </div>
       </div>
       <FooterMain />

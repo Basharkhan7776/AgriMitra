@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Setup() {
   const { user } = useContext(AuthContext);
+  const [toggle, setToggle] = useState(false);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -49,6 +50,9 @@ export default function Setup() {
         mainButtonSite="/signin"
         mainButtonText="Sign in"
         homePage={false}
+        toggle={toggle}
+        setToggle={setToggle}
+
       />
       <Card className="p-10 flex flex-col gap-6 ">
         <CardTitle className="text-4xl text-center">Setup</CardTitle>

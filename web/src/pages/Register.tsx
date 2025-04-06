@@ -142,7 +142,7 @@ function Register() {
                 </a>
               </div>
               <Button type="submit" className="w-full">
-                Create account text
+                Create account
               </Button>
             </form>
             <div className="flex justify-center">

@@ -106,6 +106,10 @@ The AgriMitra project follows a modular, scalable architecture:
    ```bash
    npm install
    ```
+   or
+   ```bash
+   pnpm install
+   ```
 
 3. **Configure Environment Variables:**
 
@@ -122,6 +126,10 @@ The AgriMitra project follows a modular, scalable architecture:
 4. **Run the Web App:**
    ```bash
    npm run dev
+   ```
+   or
+   ```bash
+   pnpm run dev
    ```
    The app will be available at [http://localhost:3000](http://localhost:3000).
 

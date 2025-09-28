@@ -1,8 +1,5 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { doc, updateDoc } from "firebase/firestore";
-import { db } from "@/firebase";
-import { AuthContext } from "@/context/AuthContext";
 import { NavBarHome } from "@/components/navBar";
 import { Card, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -10,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 export default function Setup() {
-  const { user } = useContext(AuthContext);
   const [toggle, setToggle] = useState(false);
   const navigate = useNavigate();
 
@@ -28,20 +24,10 @@ export default function Setup() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!user) {
-      alert("You must be logged in to complete the setup.");
-      return;
-    }
-
-    try {
-      await updateDoc(doc(db, "users", user.uid), formData);
-      navigate("/dashboard");
-    } catch (error) {
-      console.error("Error saving setup data:", error);
-    }
+    alert("This is a mock setup and does not actually save your data.");
+    navigate("/dashboard");
   };
 
   return (

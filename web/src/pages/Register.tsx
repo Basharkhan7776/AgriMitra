@@ -1,9 +1,5 @@
 import { useState, useContext } from "react";
-import { auth, db, provider } from "../firebase";
-import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { doc, setDoc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -25,42 +21,17 @@ function Register() {
   const [toggle, setToggle] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleSignUp = async (e: React.FormEvent) => {
+  const handleSignUp = (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      const user = userCredential.user;
-      await setDoc(doc(db, "users", user.uid), { email });
-      dispatch({ type: "LOGIN", payload: user });
-      navigate("/setup");
-    } catch (error) {
-      console.error(error);
-    }
+    alert("This is a mock registration and does not actually create an account.");
+    navigate("/dashboard");
   };
 
-  const handleGoogleSignIn = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      const userRef = doc(db, "users", user.uid);
-      const userSnap = await getDoc(userRef);
-      dispatch({ type: "LOGIN", payload: user });
-      if (!userSnap.exists()) {
-        await setDoc(userRef, { email: user.email });
-        navigate("/setup");
-      } else {
-        navigate("/dashboard");
-      }
-    } catch (error) {
-      console.error(error);
-    }
+  const handleGoogleSignIn = () => {
+    alert("This is a mock registration and does not actually create an account.");
+    navigate("/dashboard");
   };
 
   return (

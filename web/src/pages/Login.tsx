@@ -1,9 +1,5 @@
 import { useState, useContext } from "react";
-import { auth, db, provider } from "../firebase";
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { HomeSidebar } from "@/components/app-sidebar";
 import {
@@ -22,43 +18,17 @@ const Login = () => {
   const [toggle,setToggle]=useState(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      dispatch({ type: "LOGIN", payload: userCredential.user });
-      navigate("/dashboard");
-    } catch (error) {
-      console.error(error);
-    }
+    alert("This is a mock login and does not actually log you in.");
+    navigate("/dashboard");
   };
 
-  const handleGoogleSignIn = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-
-      const userRef = doc(db, "users", user.uid);
-      const userSnap = await getDoc(userRef);
-
-      dispatch({ type: "LOGIN", payload: user });
-
-      if (!userSnap.exists()) {
-        await setDoc(userRef, { email: user.email });
-        navigate("/setup");
-      } else {
-        navigate("/dashboard");
-      }
-    } catch (error) {
-      console.error(error);
-    }
+  const handleGoogleSignIn = () => {
+    alert("This is a mock login and does not actually log you in.");
+    navigate("/dashboard");
   };
 
   return (

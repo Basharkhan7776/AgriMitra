@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { collection, addDoc, serverTimestamp, query, orderBy, onSnapshot, doc, updateDoc } from "firebase/firestore";
-import { db, auth } from "@/firebase";
 import { NavBarCommunity } from "@/components/navBar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -131,55 +129,19 @@ export default function Blogs() {
   const [blogs, setBlogs] = useState<
     { id: string; title: string; description: string; imageUrl: string; authorName: string; postedDate: any; likes: number }[]
   >([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!title || !description || !imageUrl) {
       setError("All fields are required.");
       return;
     }
-    try {
-      await addDoc(collection(db, "blogs"), {
-        title,
-        description,
-        imageUrl,
-        authorName: auth.currentUser?.displayName || "Unknown",
-        postedDate: serverTimestamp(),
-        likes: 0,
-      });
-      setTitle("");
-      setDescription("");
-      setImageUrl("");
-      setError("");
-    } catch (err: any) {
-      alert("Error creating blog post: " + err.message);
-    }
+    alert("This is a mock blog post and does not actually save your data.");
   };
 
-  useEffect(() => {
-    const q = query(collection(db, "blogs"), orderBy("postedDate", "desc"));
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const blogsData = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...(doc.data() as {
-          title: string;
-          description: string;
-          imageUrl: string;
-          authorName: string;
-          postedDate: any;
-          likes: number;
-        }),
-      }));
-      setBlogs(blogsData);
-      setLoading(false);
-    });
-    return unsubscribe;
-  }, []);
-
-  const handleLike = async (blogId: string, currentLikes: number) => {
-    const blogRef = doc(db, "blogs", blogId);
-    await updateDoc(blogRef, { likes: currentLikes + 1 });
+  const handleLike = (blogId: string, currentLikes: number) => {
+    alert("This is a mock like and does not actually save your data.");
   };
 
   if (loading) {
@@ -259,19 +221,6 @@ export default function Blogs() {
           </Dialog>
         </div>
         <div className="flex flex-wrap gap-4 justify-center items-center">
-          {blogs.map((blog) => (
-            <BlogsPost
-              key={blog.id}
-              image={blog.imageUrl}
-              title={blog.title}
-              description={blog.description}
-              date={blog.postedDate.toDate().toLocaleDateString()}
-              authorName={blog.authorName}
-              authorAvator="https://static.vecteezy.com/system/resources/previews/045/868/113/non_2x/picture-symbol-icon-vector.jpg"
-              handleLike={handleLike}
-              blog={blog}
-            />
-          ))}
           {posts.map((post) => (
             <BlogsPost
               image={post.imageUrl}
